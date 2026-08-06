@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+/* ===========================
+   Background
+=========================== */
+
+.signin-page{
+
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background-image:
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+    url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=80");
+
+    background-size:cover;
+    background-position:center;
+    padding:20px;
+
+}
+
+/* ===========================
+   Card
+=========================== */
+
+.signin-card{
+
+    width:420px;
+    max-width:100%;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(14px);
+
+    border-radius:20px;
+
+    padding:40px;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.45);
+
+    color:white;
+
+    animation:fadeUp .8s ease;
+
+}
+
+/* ===========================
+   Titles
+=========================== */
+
+.signin-card h1{
+
+    text-align:center;
+
+    font-size:42px;
+
+    color:#29B6F6;
+
+    margin-bottom:10px;
+
+}
+
+.signin-card h2{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+    font-weight:400;
+
+}
+
+/* ===========================
+   Form
+=========================== */
+
+.signin-card form{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.signin-card input{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-bottom:18px;
+
+    border:none;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:16px;
+
+    color:white;
+
+    background:rgba(255,255,255,.18);
+
+}
+
+.signin-card input::placeholder{
+
+    color:#ddd;
+
+}
+
+.signin-card input:focus{
+
+    background:rgba(255,255,255,.28);
+
+}
+
+/* ===========================
+   Button
+=========================== */
+
+.signin-card button{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#29B6F6;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.signin-card button:hover{
+
+    background:#0288D1;
+
+    transform:translateY(-2px);
+
+}
+
+.signin-card button:disabled{
+
+    background:#777;
+
+    cursor:not-allowed;
+
+}
+
+/* ===========================
+   Links
+=========================== */
+
+.signin-card p{
+
+    margin-top:25px;
+
+    text-align:center;
+
+}
+
+.signin-card a{
+
+    color:#29B6F6;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+.signin-card a:hover{
+
+    text-decoration:underline;
+
+}
+
+.home-link{
+
+    display:block;
+
+    text-align:center;
+
+    margin-top:20px;
+
+    color:white !important;
+
+    font-weight:500;
+
+}
+
+/* ===========================
+   Animation
+=========================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(50px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:600px){
+
+    .signin-card{
+
+        width:100%;
+
+        padding:30px;
+
+    }
+
+    .signin-card h1{
+
+        font-size:34px;
+
+    }
+
+    .signin-card h2{
+
+        font-size:24px;
+
+    }
+
+}

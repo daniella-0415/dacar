@@ -1,0 +1,97 @@
+.dashboard{
+
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background-image:
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
+    url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=80");
+
+    background-size:cover;
+    background-position:center;
+
+}
+
+.dashboard-card{
+
+    width:500px;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(12px);
+
+    color:white;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.4);
+
+}
+
+.dashboard-card h1{
+
+    color:#29B6F6;
+
+    margin-bottom:10px;
+
+}
+
+.dashboard-card h2{
+
+    margin-bottom:20px;
+
+}
+
+.user-info{
+
+    margin:30px 0;
+
+    background:rgba(255,255,255,.1);
+
+    padding:20px;
+
+    border-radius:10px;
+
+}
+
+.user-info p{
+
+    margin:10px 0;
+
+}
+
+.dashboard-card button{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#29B6F6;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.dashboard-card button:hover{
+
+    background:#0288D1;
+
+}
