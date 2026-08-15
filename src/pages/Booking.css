@@ -1,0 +1,179 @@
+.booking-page {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 20px;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.9)
+        ),
+        url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1600");
+
+    background-size: cover;
+    background-position: center;
+
+    color: white;
+}
+
+.booking-card {
+    width: 100%;
+    max-width: 500px;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    background: rgba(30, 30, 30, 0.95);
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.booking-card h1 {
+    text-align: center;
+
+    color: #2db4f0;
+
+    margin-bottom: 10px;
+}
+
+.booking-card h2 {
+    text-align: center;
+
+    font-size: 30px;
+
+    margin-bottom: 10px;
+}
+
+.booking-text {
+    text-align: center;
+
+    color: #ccc;
+
+    margin-bottom: 30px;
+}
+
+.booking-card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-card label {
+    margin-bottom: 8px;
+
+    font-weight: 600;
+}
+
+.booking-card input {
+    padding: 14px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid #555;
+
+    border-radius: 8px;
+
+    background: #222;
+
+    color: white;
+
+    font-size: 15px;
+}
+
+.booking-card input:focus {
+    outline: none;
+
+    border-color: #2db4f0;
+}
+
+.booking-card form button {
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #2db4f0;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.booking-card form button:hover {
+    background: #159bd5;
+
+    transform: translateY(-2px);
+}
+
+.booking-card form button:disabled {
+    background: #555;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+.booking-error {
+    padding: 12px;
+
+    margin-bottom: 20px;
+
+    border-radius: 8px;
+
+    background: rgba(231, 76, 60, 0.15);
+
+    color: #ff6b6b;
+
+    text-align: center;
+}
+
+.back-button {
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 13px;
+
+    border: 1px solid white;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.back-button:hover {
+    background: white;
+
+    color: black;
+}
+
+@media (max-width: 500px) {
+
+    .booking-card {
+        padding: 25px;
+    }
+
+    .booking-card h2 {
+        font-size: 25px;
+    }
+
+}

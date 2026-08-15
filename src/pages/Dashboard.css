@@ -95,3 +95,42 @@
     background:#0288D1;
 
 }
+
+.dashboard-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cars-btn,
+.logout-btn {
+    border: none;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cars-btn {
+    background: #00b4ff;
+    color: white;
+}
+
+.cars-btn:hover {
+    background: #0097d6;
+    transform: translateY(-2px);
+}
+
+.logout-btn {
+    background: crimson;
+    color: white;
+}
+
+.logout-btn:hover {
+    background: #b0002a;
+    transform: translateY(-2px);
+}

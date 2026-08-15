@@ -11,46 +11,47 @@ function Dashboard() {
 
         localStorage.removeItem("isLoggedIn");
         localStorage.removeItem("user");
+        localStorage.removeItem("auth");
 
         alert("Logged out successfully.");
 
         navigate("/signin");
-
     }
 
     return (
-
         <div className="dashboard">
 
             <div className="dashboard-card">
 
                 <h1>Welcome to DaCars</h1>
 
-                <h2>Protected Dashboard</h2>
+                <h2>Dashboard</h2>
 
-                <p>
-                    You have successfully signed in.
-                </p>
+                <p>You have successfully signed in.</p>
 
                 {user && (
-
                     <div className="user-info">
 
                         <h3>User Information</h3>
 
                         <p>
-                            <strong>Name:</strong>{" "}
-                            {user.firstName} {user.lastName}
+                            <strong>Name:</strong> {user.firstName} {user.lastName}
                         </p>
 
                         <p>
-                            <strong>Email:</strong>{" "}
-                            {user.email}
+                            <strong>Email:</strong> {user.email}
                         </p>
 
                     </div>
-
                 )}
+
+                <button onClick={() => navigate("/cars")}>
+                    View Available Cars
+                </button>
+
+                <button onClick={() => navigate("/my-bookings")}>
+    My Bookings
+</button>
 
                 <button onClick={logout}>
                     Logout
@@ -59,9 +60,7 @@ function Dashboard() {
             </div>
 
         </div>
-
     );
-
 }
 
 export default Dashboard;

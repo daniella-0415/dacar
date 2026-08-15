@@ -4,7 +4,6 @@ import axios from "axios";
 import "./Signin.css";
 
 function Signin() {
-
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -15,34 +14,40 @@ function Signin() {
     const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
-
         setFormData({
             ...formData,
             [e.target.name]: e.target.value
         });
-
     };
 
     const handleSubmit = async (e) => {
-
         e.preventDefault();
 
         setLoading(true);
 
         try {
-
             const response = await axios.post(
                 "http://localhost:3000/signin",
                 formData
             );
 
-            alert(response.data.message);
-
+            // Save login status
             localStorage.setItem("isLoggedIn", "true");
+
+            // Save logged in user
             localStorage.setItem(
                 "user",
                 JSON.stringify(response.data.user)
             );
+
+            // Save Basic Authentication token
+            const auth = btoa(
+                `${formData.email}:${formData.password}`
+            );
+
+            localStorage.setItem("auth", auth);
+
+            alert(response.data.message);
 
             navigate("/dashboard");
 
@@ -55,17 +60,12 @@ function Signin() {
             }
 
         } finally {
-
             setLoading(false);
-
         }
-
     };
 
     return (
-
         <div className="signin-page">
-
             <div className="signin-card">
 
                 <h1>DaCars</h1>
@@ -102,29 +102,22 @@ function Signin() {
                 </form>
 
                 <p>
-
-                    Don't have an account?
-
+                    Don't have an account?{" "}
                     <Link to="/signup">
-
                         Sign Up
-
                     </Link>
-
                 </p>
 
-                <Link className="home-link" to="/">
-
-                    ← Back Home
-
+                <Link
+                    className="home-link"
+                    to="/"
+                >
+                     Back Home
                 </Link>
 
             </div>
-
         </div>
-
     );
-
 }
 
 export default Signin;
