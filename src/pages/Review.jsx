@@ -186,7 +186,6 @@ function Review() {
 
                 </div>
 
-                {/* Existing Reviews */}
 
                 <div className="existing-reviews">
 
@@ -242,7 +241,7 @@ function Review() {
                     className="back-btn"
                     onClick={goBack}
                 >
-                    ← Back to Cars
+                 Back to Cars
                 </button>
 
             </div>

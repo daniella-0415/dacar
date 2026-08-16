@@ -5,8 +5,6 @@ function Home() {
     return (
         <div className="home">
 
-            {/* ================= NAVBAR ================= */}
-
             <nav className="navbar">
 
                 <Link to="/" className="logo">
@@ -24,9 +22,6 @@ function Home() {
                 </div>
 
             </nav>
-
-
-            {/* ================= HERO ================= */}
 
             <section className="hero">
 
@@ -70,9 +65,6 @@ function Home() {
 
             </section>
 
-
-            {/* ================= QUICK BOOKING ================= */}
-
             <section className="booking-search">
 
                 <div className="booking-title">
@@ -90,7 +82,7 @@ function Home() {
                     <div className="search-item">
 
                         <span className="search-icon">
-                            📍
+                            
                         </span>
 
                         <div>
@@ -107,7 +99,7 @@ function Home() {
                     <div className="search-item">
 
                         <span className="search-icon">
-                            🚘
+                            
                         </span>
 
                         <div>
@@ -132,8 +124,6 @@ function Home() {
 
             </section>
 
-
-            {/* ================= STATS ================= */}
 
             <section className="stats">
 
@@ -171,8 +161,6 @@ function Home() {
 
             </section>
 
-
-            {/* ================= VEHICLE CATEGORIES ================= */}
 
             <section className="categories">
 
@@ -254,8 +242,7 @@ function Home() {
 
                     <Link
                         to="/cars"
-                        className="category-card suv"
-                    >
+                        className="category-card suv">
 
                         <div className="category-overlay"></div>
 
@@ -281,8 +268,7 @@ function Home() {
 
                     <Link
                         to="/cars"
-                        className="category-card economy"
-                    >
+                        className="category-card economy" >
 
                         <div className="category-overlay"></div>
 
@@ -308,9 +294,6 @@ function Home() {
                 </div>
 
             </section>
-
-
-            {/* ================= HOW IT WORKS ================= */}
 
             <section className="how-it-works">
 
@@ -386,7 +369,6 @@ function Home() {
             </section>
 
 
-            {/* ================= WHY DACARS ================= */}
 
             <section className="why-dacars">
 
@@ -416,7 +398,7 @@ function Home() {
 
                         <div className="benefit">
 
-                            <span>✓</span>
+                            <span>.</span>
 
                             <div>
 
@@ -436,7 +418,7 @@ function Home() {
 
                         <div className="benefit">
 
-                            <span>✓</span>
+                            <span>.</span>
 
                             <div>
 
@@ -456,7 +438,7 @@ function Home() {
 
                         <div className="benefit">
 
-                            <span>✓</span>
+                            <span>.</span>
 
                             <div>
 
@@ -478,7 +460,7 @@ function Home() {
                     <Link to="/cars">
 
                         <button className="primary-btn">
-                            Explore Our Cars →
+                            Explore Our Cars 
                         </button>
 
                     </Link>
@@ -488,7 +470,6 @@ function Home() {
             </section>
 
 
-            {/* ================= CTA ================= */}
 
             <section className="final-cta">
 
@@ -518,8 +499,6 @@ function Home() {
 
             </section>
 
-
-            {/* ================= FOOTER ================= */}
 
             <footer className="footer">
 

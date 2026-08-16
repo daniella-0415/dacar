@@ -9,7 +9,6 @@ function Cars() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
-    // Different fallback images for different cars
     const carImages = [
         "https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=800",
         "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=800",
@@ -27,10 +26,8 @@ function Cars() {
 
     async function fetchCars() {
         try {
-            // Get the saved authentication credentials
             const auth = localStorage.getItem("auth");
 
-            // Make sure the user is logged in
             if (!auth) {
                 throw new Error("Please sign in first.");
             }
@@ -105,7 +102,7 @@ function Cars() {
                     className="back-dashboard-btn"
                     onClick={() => navigate("/dashboard")}
                 >
-                    ← Dashboard
+                Dashboard
                 </button>
 
             </div>

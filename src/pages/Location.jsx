@@ -5,7 +5,6 @@ function Location() {
     const navigate = useNavigate();
     const location = useLocation();
 
-    // Get car information passed from CarDetails
     const car = location.state?.car;
 
     if (!car) {
@@ -60,7 +59,7 @@ function Location() {
 
                     <div className="map-placeholder">
 
-                        <span>📍</span>
+                        <span></span>
 
                         <h3>
                             DaCars Location
@@ -81,7 +80,7 @@ function Location() {
                         className="back-btn"
                         onClick={() => navigate(-1)}
                     >
-                        ← Back
+                         Back
                     </button>
 
                     <button

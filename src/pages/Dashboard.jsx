@@ -2,13 +2,11 @@ import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 
 function Dashboard() {
-
     const navigate = useNavigate();
 
     const user = JSON.parse(localStorage.getItem("user"));
 
     function logout() {
-
         localStorage.removeItem("isLoggedIn");
         localStorage.removeItem("user");
         localStorage.removeItem("auth");
@@ -23,39 +21,76 @@ function Dashboard() {
 
             <div className="dashboard-card">
 
-                <h1>Welcome to DaCars</h1>
+                <div className="dashboard-header">
+                    <h1>DaCars</h1>
+                    <h2>Dashboard</h2>
 
-                <h2>Dashboard</h2>
+                    <p>
+                        You have successfully signed in.
+                    </p>
+                </div>
 
-                <p>You have successfully signed in.</p>
 
                 {user && (
                     <div className="user-info">
 
                         <h3>User Information</h3>
 
-                        <p>
-                            <strong>Name:</strong> {user.firstName} {user.lastName}
-                        </p>
+                        <div className="user-detail">
+                            <span>Name</span>
+                            <strong>
+                                {user.firstName} {user.lastName}
+                            </strong>
+                        </div>
 
-                        <p>
-                            <strong>Email:</strong> {user.email}
-                        </p>
+                        <div className="user-detail">
+                            <span>Email</span>
+                            <strong>
+                                {user.email}
+                            </strong>
+                        </div>
 
                     </div>
                 )}
 
-                <button onClick={() => navigate("/cars")}>
-                    View Available Cars
-                </button>
 
-                <button onClick={() => navigate("/my-bookings")}>
-    My Bookings
-</button>
+                <div className="dashboard-actions">
 
-                <button onClick={logout}>
-                    Logout
-                </button>
+                    <button
+                        type="button"
+                        className="cars-button"
+                        onClick={() => navigate("/cars")}
+                    >
+
+                        <span>
+                            View Available Cars
+                        </span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        className="bookings-button"
+                        onClick={() => navigate("/my-bookings")}
+                    >
+
+                        <span>
+                            My Bookings
+                        </span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        className="logout-button"
+                        onClick={logout}
+                    >
+                        <span>
+                            Logout
+                        </span>
+                    </button>
+
+                </div>
 
             </div>
 

@@ -549,16 +549,12 @@ function Payment() {
 
                     </div>
 
-                    {/* CARD */}
-
                     {paymentMethod ===
                         "card" && (
 
                         <div className="card-form">
 
-                            <h3>
-                                Card Details
-                            </h3>
+                            <h3> Card Details </h3>
 
                             <label>
                                 Cardholder Name
@@ -663,7 +659,6 @@ function Payment() {
                         </div>
                     )}
 
-                    {/* EFT */}
 
                     {paymentMethod ===
                         "eft" && (
@@ -685,7 +680,6 @@ function Payment() {
                         </div>
                     )}
 
-                    {/* CASH */}
 
                     {paymentMethod ===
                         "cash" && (

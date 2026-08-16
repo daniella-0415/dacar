@@ -37,7 +37,6 @@ function Booking() {
             return 0;
         }
 
-        // Charge for every started hour
         return Math.ceil(
             difference / (1000 * 60 * 60)
         );
@@ -125,12 +124,7 @@ function Booking() {
                 "Booking created successfully!"
             );
 
-            /*
-                Send the rental dates to Payment.
-
-                The customer does NOT need to enter
-                a booking ID or amount.
-            */
+           
 
             navigate(`/payment/${id}`, {
                 state: {
@@ -206,7 +200,6 @@ function Booking() {
                         required
                     />
 
-                    {/* PRICE PREVIEW */}
 
                     {hours > 0 && (
                         <div className="booking-summary">
