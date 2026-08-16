@@ -49,7 +49,7 @@ function Home() {
 
                         <Link to="/signup">
                             <button className="primary-btn">
-                                Explore Cars →
+                                Explore Cars 
                             </button>
                         </Link>
 
@@ -490,7 +490,7 @@ function Home() {
                     <Link to="/signup">
 
                         <button className="primary-btn">
-                            Start Your Journey →
+                            Start Your Journey 
                         </button>
 
                     </Link>
