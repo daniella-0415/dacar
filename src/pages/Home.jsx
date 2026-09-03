@@ -36,13 +36,13 @@ function Home() {
                     <h1>
                         YOUR JOURNEY.
                         <br />
-                        <span>YOUR CAR.</span>
+                        <span>YOUR CAR</span>
                     </h1>
 
                     <p className="hero-description">
                         Experience premium vehicles without the
                         long-term commitment. Rent by the hour,
-                        choose your car and hit the road.
+                        choose your car and hit the road
                     </p>
 
                     <div className="hero-buttons">
@@ -408,7 +408,7 @@ function Home() {
 
                                 <p>
                                     Rent by the hour and only
-                                    pay for the time you use.
+                                    pay for the time you use
                                 </p>
 
                             </div>
@@ -418,7 +418,7 @@ function Home() {
 
                         <div className="benefit">
 
-                            <span>.</span>
+                          
 
                             <div>
 
