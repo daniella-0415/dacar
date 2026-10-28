@@ -7,8 +7,21 @@ function CarDetails() {
     const navigate = useNavigate();
 
     const [car, setCar] = useState(null);
+    const [carImage, setCarImage] = useState("");
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
+
+    // Same images used on the Cars page
+    const carImages = [
+        "https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=800",
+        "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=800",
+        "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800",
+        "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=800",
+        "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800",
+        "https://images.unsplash.com/photo-1542362567-b07e54358753?w=800",
+        "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800",
+        "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800"
+    ];
 
     useEffect(() => {
         fetchCarDetails();
@@ -22,8 +35,9 @@ function CarDetails() {
                 throw new Error("Please sign in first.");
             }
 
-            const response = await fetch(
-                `http://localhost:3000/cars/${id}`,
+            // Get the selected car
+            const carResponse = await fetch(
+                `http://100.29.227.66:3000/cars/${id}`,
                 {
                     method: "GET",
                     headers: {
@@ -33,18 +47,64 @@ function CarDetails() {
                 }
             );
 
-            const data = await response.json();
+            const carData = await carResponse.json();
 
-            if (!response.ok) {
+            if (!carResponse.ok) {
                 throw new Error(
-                    data.error || "Failed to load car details."
+                    carData.error ||
+                    "Failed to load car details."
                 );
             }
 
-            setCar(data);
+            setCar(carData);
+
+            /*
+             * If the database has its own image, use it.
+             * Otherwise find the car's position in the
+             * complete car list and use the matching
+             * fallback image.
+             */
+            if (carData.image) {
+                setCarImage(carData.image);
+            } else {
+
+                const carsResponse = await fetch(
+                    "http://100.29.227.66:3000/cars",
+                    {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Basic ${auth}`
+                        }
+                    }
+                );
+
+                const carsData = await carsResponse.json();
+
+                if (!carsResponse.ok) {
+                    throw new Error(
+                        "Failed to load car images."
+                    );
+                }
+
+                const carIndex = carsData.findIndex(
+                    (item) => item._id === carData._id
+                );
+
+                if (carIndex !== -1) {
+                    setCarImage(
+                        carImages[
+                            carIndex % carImages.length
+                        ]
+                    );
+                } else {
+                    setCarImage(carImages[0]);
+                }
+            }
 
         } catch (err) {
             setError(err.message);
+
         } finally {
             setLoading(false);
         }
@@ -116,17 +176,16 @@ function CarDetails() {
             <div className="car-details-card">
 
                 <img
-                    src={
-                        car.image ||
-                        "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800"
-                    }
+                    src={carImage}
                     alt={car.name}
                     className="car-details-image"
                 />
 
                 <div className="car-details-content">
 
-                    <h1>{car.name}</h1>
+                    <h1>
+                        {car.name}
+                    </h1>
 
                     <p>
                         <strong>Category:</strong>{" "}
@@ -151,13 +210,11 @@ function CarDetails() {
 
                     {car.description && (
                         <div className="description">
-
                             <h3>Description</h3>
 
                             <p>
                                 {car.description}
                             </p>
-
                         </div>
                     )}
 
@@ -174,7 +231,7 @@ function CarDetails() {
                             className="location-btn"
                             onClick={viewLocation}
                         >
-                             View Location
+                            View Location
                         </button>
 
                         <button
@@ -191,7 +248,7 @@ function CarDetails() {
                             className="review-btn"
                             onClick={leaveReview}
                         >
-                             Leave a Review
+                            Leave a Review
                         </button>
 
                     </div>

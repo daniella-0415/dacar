@@ -88,7 +88,7 @@ function Booking() {
 
         try {
             const response = await fetch(
-                "http://localhost:3000/bookings",
+                "http://100.29.227.66:3000/bookings",
                 {
                     method: "POST",
 

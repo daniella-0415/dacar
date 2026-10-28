@@ -32,7 +32,7 @@ function Review() {
             }
 
             const response = await fetch(
-                `http://localhost:3000/reviews/car/${id}`,
+                `http://100.29.227.66:3000/reviews/car/${id}`,
                 {
                     method: "GET",
                     headers: {
@@ -74,7 +74,7 @@ function Review() {
             }
 
             const response = await fetch(
-                "http://localhost:3000/reviews",
+                "http://100.29.227.66:3000/reviews",
                 {
                     method: "POST",
                     headers: {

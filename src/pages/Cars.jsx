@@ -33,7 +33,7 @@ function Cars() {
             }
 
             const response = await fetch(
-                "http://localhost:3000/cars",
+                "http://100.29.227.66:3000/cars",
                 {
                     method: "GET",
                     headers: {
@@ -51,7 +51,20 @@ function Cars() {
                 );
             }
 
-            setCars(data);
+            /*
+             * Give each car its own image.
+             * If the database already has an image,
+             * keep it. Otherwise use one of our
+             * 8 fallback images.
+             */
+            const carsWithImages = data.map((car, index) => ({
+                ...car,
+                displayImage:
+                    car.image ||
+                    carImages[index % carImages.length]
+            }));
+
+            setCars(carsWithImages);
 
         } catch (err) {
             setError(err.message);
@@ -62,7 +75,11 @@ function Cars() {
     }
 
     function viewDetails(car) {
-        navigate(`/cars/${car._id}`);
+        navigate(`/cars/${car._id}`, {
+            state: {
+                image: car.displayImage
+            }
+        });
     }
 
     if (loading) {
@@ -78,7 +95,11 @@ function Cars() {
             <div className="error">
                 <h2>{error}</h2>
 
-                <button onClick={() => navigate("/dashboard")}>
+                <button
+                    onClick={() =>
+                        navigate("/dashboard")
+                    }
+                >
                     Back to Dashboard
                 </button>
             </div>
@@ -100,9 +121,11 @@ function Cars() {
 
                 <button
                     className="back-dashboard-btn"
-                    onClick={() => navigate("/dashboard")}
+                    onClick={() =>
+                        navigate("/dashboard")
+                    }
                 >
-                Dashboard
+                    Dashboard
                 </button>
 
             </div>
@@ -113,7 +136,8 @@ function Cars() {
                     <h2>No Cars Available</h2>
 
                     <p>
-                        There are currently no cars available for rental.
+                        There are currently no cars
+                        available for rental.
                     </p>
                 </div>
 
@@ -121,7 +145,7 @@ function Cars() {
 
                 <div className="cars-grid">
 
-                    {cars.map((car, index) => (
+                    {cars.map((car) => (
 
                         <div
                             className="car-card"
@@ -129,12 +153,7 @@ function Cars() {
                         >
 
                             <img
-                                src={
-                                    car.image ||
-                                    carImages[
-                                        index % carImages.length
-                                    ]
-                                }
+                                src={car.displayImage}
                                 alt={car.name}
                                 className="car-image"
                             />

@@ -43,7 +43,7 @@ function Signup() {
     try {
       setLoading(true);
 
-      const response = await fetch("http://localhost:3000/signup", {
+      const response = await fetch("http://100.29.227.66:3000/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

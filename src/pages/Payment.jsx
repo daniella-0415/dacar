@@ -47,7 +47,7 @@ function Payment() {
             }
 
             const bookingsResponse = await fetch(
-                "http://localhost:3000/bookings/my-bookings",
+                "http://100.29.227.66:3000/bookings/my-bookings",
                 {
                     method: "GET",
                     headers: {
@@ -103,7 +103,7 @@ function Payment() {
             }
 
             const carResponse = await fetch(
-                `http://localhost:3000/cars/${newestBooking.carId}`,
+                `http://100.29.227.66:3000/cars/${newestBooking.carId}`,
                 {
                     method: "GET",
                     headers: {
@@ -277,7 +277,7 @@ function Payment() {
 
             const response =
                 await fetch(
-                    "http://localhost:3000/payments",
+                    "http://100.29.227.66:3000/payments",
                     {
                         method: "POST",
 
